@@ -19,3 +19,20 @@ function updateInObject(originalObject, key, val) {
     [key]: val
   }
 }
+
+function loadImage(src) {
+  return new Promise((resolve, reject) => {
+    const img = new Image()
+    img.onload = () => resolve(img)
+    img.onerror = (err) => reject(err)
+    img.src = src
+  })
+}
+
+// maybe
+module.exports = {
+  incrementInList,
+  decrementInList,
+  updateInObject,
+  loadImage,
+}
