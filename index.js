@@ -23,7 +23,7 @@ const updateInObject = (originalObject, key, val) => {
   }
 }
 
-const loadImage = (src) => {
+const loadImage = src => {
   return new Promise((resolve, reject) => {
     const img = new Image()
     img.onload = () => resolve(img)
@@ -32,9 +32,13 @@ const loadImage = (src) => {
   })
 }
 
-const isObject = obj => obj && typeof obj === 'object'
+const isObject = a => a && typeof a === 'object' && value.constructor === Object
 
 const hasKey = (obj, key) => key in obj
+
+const deepClone = obj => JSON.parse(JSON.stringify(obj))
+
+const identity = a => a
 
 const assignWithStringPath = (obj, prop, value) => {
   if (typeof prop === 'string') {
@@ -47,8 +51,4 @@ const assignWithStringPath = (obj, prop, value) => {
       : {}
     assignWithStringPath(obj, prop, value)
   } else obj[prop[0]] = value
-}
-
-const deepClone = (obj) => {
-  return JSON.parse(JSON.stringify(obj))
 }
