@@ -38,6 +38,8 @@ const isString = a => typeof a === 'string' || a instanceof String
 
 const isNumber = a => typeof a === 'number' && isFinite(a)
 
+const isArray = a => a.isArray()
+
 const isFunction = a => typeof a === 'function'
 
 const isNull = a => a === null
