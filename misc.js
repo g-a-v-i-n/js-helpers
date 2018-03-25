@@ -1,6 +1,3 @@
-//  Basically a Gist
-
-
 const incrementInList = (list, currentIndex) => {
   const listLength = list.length
   if (currentIndex + 1 < listLength) {
@@ -22,6 +19,8 @@ const updateInObject = (originalObject, key, val) => {
     [key]: val
   }
 }
+
+const invert = a => !a
 
 const assignWithStringPath = (obj, prop, value) => {
   if (typeof prop === 'string') {
