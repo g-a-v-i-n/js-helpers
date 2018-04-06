@@ -1,5 +1,7 @@
 
 // Arrays
+const empty = length => [...Array(length)]
+
 const at = array => i => array[i]
 
 const head = ([x]) => x
@@ -10,8 +12,12 @@ const atEnd = list => i => i + 1 === length(list)
 
 const atStart = list => i => i === 0
 
-const copyArr = array => [...array]
+const copyArr = a => [...a]
 
+const concatBy = a => f => a.reduce((acc, x) => acc + f(x))
+
+
+// NOTE what is def (def is the id func)
 const reverse = ([x, ...xs]) => def(x)
   ? [...reverse(xs), x]
   : []
@@ -30,7 +36,7 @@ const previous = arr => i =>
     ? at(arr, i)
     : at(arr, i - 1)
 
-const reject = (arr, f) => reduce(arr, (acc, a) => f(a)
+const reject = (arr) => (f) => reduce(arr, (acc, a) => f(a)
   ? [...acc]
   : [...acc, a], [])
 

@@ -1,18 +1,11 @@
 // Lenses
 const assoc = key => val => obj => { obj[key] = val; return obj }
-
 const lens = get => set => ({ get, set })
-
 const view = lens => obj => lens.get(obj)
-
 const set = lens => val => obj => lens.set(val)(obj)
-
 const over = lens => fn => obj => set(lens)(fn(view(lens)(obj)))(obj)
-
 const lensProp = key => lens(prop(key))(assoc(key))
-
 const prop = key => obj => obj[key]
-
 
 const assocPath = path => val => obj => {
   if (path.length === 0) {

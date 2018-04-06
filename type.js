@@ -2,7 +2,7 @@
 const isObject = a => a && typeof a === 'object' && a.constructor === Object
 const isString = a => typeof a === 'string' || a instanceof String
 const isNumber = a => typeof a === 'number' && isFinite(a)
-const isArray = a => a.isArray()
+const isArray = a => Array.isArray(a)
 const isFunction = a => typeof a === 'function'
 const isNull = a => a === null
 const isUndefined = a => typeof a === 'undefined'
