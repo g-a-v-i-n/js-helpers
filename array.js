@@ -6,10 +6,10 @@ const empty = length => [...Array(length)]
 // get an item at an index in array
 const at = array => i => array[i]
 
-// ??
+// Return the first item in an array.
 const head = ([x]) => x
 
-// add items to beginning of array
+// Return all but the first item in an array.
 const tail = ([x, ...xs]) => xs
 
 // is this the last array elem?
@@ -21,7 +21,7 @@ const atStart = list => i => i === 0
 // copy an array
 const copyArr = a => [...a]
 
-// execute a function on an item in array, then add to acc with another function
+// execute a function on an item in array, then change the acc with another function
 const by = a => f => g => reduce((acc, x) => g(acc, f(x)) )
 
 // reverse an array
@@ -63,7 +63,7 @@ const slice = ([x, ...xs], i, y, curr = 0) => def(x)
 
 // sway two items at two indices in an array
 const swap = (arr, i, j) => (
-  map(arr, (x,y) => {
+  map(arr, (x, y) => {
     if(y === i) return a[j]
     if(y === j) return a[i]
     return x
@@ -81,3 +81,5 @@ const prev = list => index => !atStart(list, index)
   : at(list, index)
 
 const partition = (xs, fn) => [filter(xs, fn), reject(xs, fn)]
+
+const indexOf = arr => k => arr.indexOf(k)
