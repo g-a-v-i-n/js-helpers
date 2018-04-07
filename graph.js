@@ -1,3 +1,6 @@
+// Using Paper JS
+
+// makes a square grid of points
 const squareGrid = (width, count) => {
   const pitch = width / count
   const unit = [...Array(count)]

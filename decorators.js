@@ -1,0 +1,1 @@
+const invert = a => !a
