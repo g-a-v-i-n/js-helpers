@@ -1,4 +1,4 @@
-// Lenses ( i don't know how most of this works)
+// Lenses ( i don't know how most of this works )
 // i really don't know what this does either
 const assoc = key => val => obj => { obj[key] = val; return obj }
 

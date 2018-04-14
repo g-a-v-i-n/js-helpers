@@ -13,7 +13,7 @@ const curryTwo = f => a => b => f(a, b)
 const uncurryTwo = f => (a, b) => f(a)(b)
 
 // curry a function with any arity
-const curry = fns => fns.reduce((obj, f) => ({ ...obj, [f.name]: curryTwo(f) }), {})
+const curry = fns => fns.reduce((acc, f) => ({ ...acc, [f.name]: curryTwo(f) }), {})
 
 // Util
 // do nothing and return nothing

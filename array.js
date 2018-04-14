@@ -3,6 +3,9 @@
 // make an empty array of any length
 const empty = length => [...Array(length)]
 
+const sequence = num => Array.from(Array(num), (nada, i) => i)
+
+
 // get an item at an index in array
 const at = array => i => array[i]
 
@@ -12,11 +15,18 @@ const head = ([x]) => x
 // Return all but the first item in an array.
 const tail = ([x, ...xs]) => xs
 
+// Return all but the first item in an array.
+const end = ([...xs, x]) => x
+
 // is this the last array elem?
 const atEnd = list => i => i + 1 === length(list)
 
 // is this the first array elem?
 const atStart = list => i => i === 0
+
+const fromRight = arr => i => arr.slice(0, i)
+
+const fromLeft = arr => i => arr.reverse().slice(0, i).reverse()
 
 // copy an array
 const copyArr = a => [...a]
@@ -34,13 +44,19 @@ const length = ([x, ...xs], len = 0) => def(x)
   ? length(xs, len + 1)
   : len
 
+//
+const filter = ([x, ...xs], fn) => def(x)
+    ? fn(x)
+        ? [x, ...filter(xs, fn)] : [...filter(xs, fn)]
+    : []
+
 // opposite of filter, return falsy items against predicate
 const reject = arr => f => reduce(arr, (acc, a) => f(a)
   ? [...acc]
   : [...acc, a], [])
 
 // take a nested array and make it into one flat array
-const flatten = ([x, ...xs]) => identity(x)
+const flatten = ([x, ...xs]) => def(x)
   ? isArray(x) ? [...flatten(x), ...flatten(xs)] : [x, ...flatten(xs)]
   : []
 
@@ -70,6 +86,13 @@ const swap = (arr, i, j) => (
   })
 )
 
+const chunk = arr => mod => arr.reduce((acc, a, i) => {
+  const offset = Math.floor(i / mod)
+  if(!acc[offset]) { acc[offset] = [] }
+  acc[offset].push(a)
+  return acc
+}, [])
+
 // gets the next item in array if not at end of array
 const next = list => index => !atEnd(list, index)
   ? at(list, index + 1)
@@ -83,3 +106,7 @@ const prev = list => index => !atStart(list, index)
 const partition = (xs, fn) => [filter(xs, fn), reject(xs, fn)]
 
 const indexOf = arr => k => arr.indexOf(k)
+
+const fromRight = arr => i => arr.slice(0, i)
+
+const fromLeft = arr => i => arr.reverse().slice(0, i).reverse()

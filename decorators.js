@@ -1,1 +1,1 @@
-const invert = a => !a
+const invert = b => !b

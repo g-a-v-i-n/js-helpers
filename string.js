@@ -1,3 +1,4 @@
+// Strings
 
 
 const toString = a => a.toString()
@@ -18,3 +19,5 @@ const stringIncludes = s => test => s.includes(test)
 const upperCase = s => s.toUpperCase()
 
 const lowerCase = s => s.toLowerCase()
+
+const split = s => delimiter => s.split(delimiter)
