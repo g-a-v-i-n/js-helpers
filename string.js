@@ -1,6 +1,5 @@
 // Strings
 
-
 const toString = a => a.toString()
 
 const charAt = s => i => s.charAt(i)
@@ -21,3 +20,5 @@ const upperCase = s => s.toUpperCase()
 const lowerCase = s => s.toLowerCase()
 
 const split = s => delimiter => s.split(delimiter)
+
+const match = s => r => s.match(r)

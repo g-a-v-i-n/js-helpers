@@ -1,13 +1,24 @@
-const binDec = s => parseInt(s, 2).toString(10)
-const binHex = s => parseInt(s, 2).toString(16)
-const decBin = s => parseInt(s, 10).toString(2)
-const decHex = s => parseInt(s, 10).toString(16)
-const hexBin = s => parseInt(s, 16).toString(2)
-const hexDec = s => parseInt(s, 16).toString(10)
-// large binary conversion
-// const rightValue = s => baseA => baseB => s.match(/.{1,32}/g).map(base.bin2hex).join('')
-
-
+// stringBar string to binary array
+// input: '0101'
+// output:  [0, 1, 0, 1]
 const stringBar = s => split(s)('').map(a => parseInt(a, 10))
 
+// barString  binary array to string
+// input: [0, 1, 0, 1]
+// output: '0101'
 const barString = arr => join(arr)('')
+
+// outputs methods for any bitlength base conversion
+const conversions = thread({
+  binDec: [2, 10],
+  binHex: [2, 16],
+  decBin: [10, 2],
+  decHex: [10, 16],
+  hexBin: [16, 2],
+  hexDec: [16, 10],
+})(bases => {
+  const conversion = s => parseInt(s, bases[0]).toString(bases[1])
+  return s => s.length < 32
+    ? conversion(s)
+    : s.match(/.{1,32}/g).map(conversion).join('')
+})
