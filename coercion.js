@@ -9,7 +9,8 @@ const stringBar = s => split(s)('').map(a => parseInt(a, 10))
 const barString = arr => join(arr)('')
 
 // outputs methods for any bitlength base conversion
-const conversions = thread({
+// TODO fix int -> string
+const { binDec, binHex, decBin, decHex, hexBin, hexDec } = thread({
   binDec: [2, 10],
   binHex: [2, 16],
   decBin: [10, 2],

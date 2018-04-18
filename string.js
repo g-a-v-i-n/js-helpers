@@ -21,4 +21,8 @@ const lowerCase = s => s.toLowerCase()
 
 const split = s => delimiter => s.split(delimiter)
 
+const splitLim = s => delimiter => lim =>  s.split(delimiter, lim)
+
 const match = s => r => s.match(r)
+
+const replace = s => test => delimiter => s.replace(test, delimiter)

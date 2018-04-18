@@ -110,3 +110,5 @@ const indexOf = arr => k => arr.indexOf(k)
 const fromRight = arr => i => arr.slice(0, i)
 
 const fromLeft = arr => i => arr.reverse().slice(0, i).reverse()
+
+const join = arr => separator => a.join(separator)
