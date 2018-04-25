@@ -1,19 +1,19 @@
 // Composition
 // compose any number of functions
-const compose = (...fns) => fns.reduce((f, g) => (...args) => f(g(...args)))
+const compose = (...fns) => fns.reduce((fn, g) => (...args) => fn(g(...args)))
 
 // execute g(), then pass result to f()
-const composeTwo = (f, g) => x => f(g(x))
+const composeTwo = (fn, g) => x => fn(g(x))
 
 // Curry
 // curry a function with two arguments
-const curryTwo = f => a => b => f(a, b)
+const curryTwo = fn => a => b => fn(a, b)
 
 // take a curried function and return a not-curried function
-const uncurryTwo = f => (a, b) => f(a)(b)
+const uncurryTwo = fn => (a, b) => fn(a)(b)
 
 // curry a function with any arity
-const curry = fns => fns.reduce((acc, f) => ({ ...acc, [f.name]: curryTwo(f) }), {})
+const curry = fns => fns.reduce((acc, fn) => ({ ...acc, [fn.name]: curryTwo(fn) }), {})
 
 // Util
 // do nothing and return nothing
@@ -25,14 +25,15 @@ const identity = a => typeof a !== 'undefined'
 // alias of identity()
 const def = identity
 
+// don't use this
 // takes a function, returns it's result and it's arguments in an array
-const composite = f => (...args) => [f(...args)(), ...args]
+const composite = fn => (...args) => [fn(...args)(), ...args]
 
 // reverses the order of a function's arguments
-const reverseArgs = f => (...args) => f(...reverse(args))
+const reverseArgs = fn => (...args) => fn(...reverse(args))
 
 // convert function that takes an array to one that takes multiple arguments. This is useful when partially applying
-const spreadArg = f => (...args) => f(args)
+const spreadArg = fn => (...args) => fn(args)
 
 // partially apply a function by filling in any number of its arguments
-const papply = (f, ...args) => (...newArgs) => f(...args, ...newArgs)
+const papply = (fn, ...args) => (...newArgs) => fn(...args, ...newArgs)

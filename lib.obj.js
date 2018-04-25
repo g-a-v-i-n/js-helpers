@@ -5,9 +5,6 @@ const has = obj => key => key in obj
 // forcefully copy an entire object. Expensive!
 const deepClone = obj => compose(JSON.parse, JSON.stringify)(obj)
 
-// idk if this is really nessecary to include here
-const unKnot = s => s.toString().split('.')
-
 // get the value of an object with an array of keys forming a path
 const propPath = path => obj => path.reduce((acc, p) => (acc && acc[p])
   ? acc[p]

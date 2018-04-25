@@ -1,7 +1,7 @@
 // stringBar string to binary array
 // input: '0101'
 // output:  [0, 1, 0, 1]
-const stringBar = s => split(s)('').map(a => parseInt(a, 10))
+const stringBar = str => split(str)('').map(arr => parseInt(arr, 10))
 
 // barString  binary array to string
 // input: [0, 1, 0, 1]

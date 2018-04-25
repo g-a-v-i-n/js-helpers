@@ -15,7 +15,7 @@ const head = ([x]) => x
 // Return all but the first item in an array.
 const tail = ([x, ...xs]) => xs
 
-// Return all but the first item in an array.
+// return the last element in array
 const end = ([...xs, x]) => x
 
 // is this the last array elem?
@@ -60,14 +60,26 @@ const flatten = ([x, ...xs]) => def(x)
   ? isArray(x) ? [...flatten(x), ...flatten(xs)] : [x, ...flatten(xs)]
   : []
 
-// reduce as a function
-const reduce = ([x, ...xs], f, acc, i = 0) => def(x)
+// reduce as a recursive function
+const rreduce = ([x, ...xs], f, acc, i = 0) => def(x)
   ? reduce(xs, fn, f(acc, x, i), i + 1)
   : acc
 
-// map as a function
-const map = ([x, ...xs], f) => def(x)
+// map as a recursive function
+const rmap = ([x, ...xs], f) => def(x)
   ? [f(x), ...map(xs, f)]
+  : []
+
+const map = (arr, f) => def(arr)
+  ? arr.map((item, i, array) => f(item, i, array))
+  : []
+
+const every = (arr, f) => def(arr)
+  ? arr.every((item, i, array) => f(item, i, array))
+  : []
+
+const some = (arr, f) => def(arr)
+  ? arr.some((item, i, array) => f(item, i, array))
   : []
 
 // return a section of an array defined by starting and ending indicies
