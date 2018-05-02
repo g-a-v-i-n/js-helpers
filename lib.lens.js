@@ -18,5 +18,5 @@ const over = lens => fn => obj => set(lens)(fn(view(lens)(obj)))(obj)
 // TODO test this
 const lensProp = key => lens(prop(key))(assoc(key))
 
-// set a key in an object
+// get a key in an object
 const prop = key => obj => obj[key]

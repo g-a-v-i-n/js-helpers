@@ -70,6 +70,7 @@ const rmap = ([x, ...xs], f) => def(x)
   ? [f(x), ...map(xs, f)]
   : []
 
+
 const map = (arr, f) => def(arr)
   ? arr.map((item, i, array) => f(item, i, array))
   : []
@@ -83,11 +84,13 @@ const some = (arr, f) => def(arr)
   : []
 
 // return a section of an array defined by starting and ending indicies
-const slice = ([x, ...xs], i, y, curr = 0) => def(x)
+const rslice = ([x, ...xs], i, y, curr = 0) => def(x)
   ? curr === i
     ? [y, x, ...slice(xs, i, y, curr + 1)]
     : [x, ...slice(xs, i, y, curr + 1)]
   : []
+
+const slice = arr => beginning => end => arr.slice(beginning, end)
 
 // sway two items at two indices in an array
 const swap = (arr, i, j) => (

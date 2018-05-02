@@ -32,5 +32,7 @@ const assocPath = path => val => obj => {
 // yep
 const entries = obj => Object.entries(obj)
 
+const keys = obj => Object.keys(obj)
+
 // takes a depth=1 shallow object and applies a function to each key/val, returns obejct copy
 const thread = obj => f => Object.entries(obj).reduce((acc, [k, v]) => (acc[k] = f(v), acc), {} )
