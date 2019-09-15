@@ -22,3 +22,20 @@ const isError = any => any instanceof Error && typeof any.message !== 'undefined
 const isDate = any => any instanceof Date
 
 const isSymbol = any => typeof any === 'symbol'
+
+const Type = {
+  isObject,
+  isString,
+  isNumber,
+  isArray,
+  isFunction,
+  isNull,
+  isUndefined,
+  isBoolean,
+  isRegExp,
+  isError,
+  isDate,
+  isSymbol,
+}
+
+export default Type;
