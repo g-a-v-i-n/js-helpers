@@ -10,7 +10,7 @@ const compose = (...fns) => fns.reduce((f, g) => (...xs) => {
 });
 
 /*
-Usage Example:
+// 1-ary Usage Example:
 
 function inc(a) { return a + 1 };
 function dec(a) { return a - 1 };
@@ -19,5 +19,16 @@ console.log(
 )
 
 >>> 0
+
+// N-ary Usage Example:
+
+function inc(a, b) { return  [a + b, b] };
+console.log(
+  compose(inc, inc, inc, inc)(0, 4)
+)
+
+>>> [16, 4]
 */
+
+
 export default compose;
