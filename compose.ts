@@ -20,4 +20,15 @@ console.log(
 
 >>> 0
 */
+
+/*
+// N-ary Usage Example:
+
+function inc(a, b) { return  [a + b, b] };
+console.log(
+  compose(inc, inc, inc, inc)(0, 4)
+)
+
+>>> [16, 4]
+*/
 export default compose;
