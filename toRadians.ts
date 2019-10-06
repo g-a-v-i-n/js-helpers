@@ -3,5 +3,5 @@
  * @param  {Number} degrees
  * @return {Number}
  */
-const toRadians = degrees => degrees * (Math.PI / 180);
+const toRadians = (degrees:number) => degrees * (Math.PI / 180);
 export default toRadians;

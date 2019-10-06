@@ -3,5 +3,5 @@
  * @param  {Boolean} bool
  * @return {Boolean}
  */
-const invert = b => !b;
+const invert = (b:boolean) => !b;
 export default invert;
